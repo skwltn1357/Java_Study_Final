@@ -32,7 +32,7 @@ public class C01_FunctionQuiz1_선생님풀이 {
 		return num % 2 == 0 ? "짝수입니다." : "홀수입니다.";
 	}
 	
-	// 4번
+	// 4번  : 숫자를 전달하면 해당 숫자의 모든 약수를 배열 형태로 반환하는 함수
 	public static int[] allYaksu(int num) {
 		// 50인 경우 boolean타입 변수 50개를 생성
 		boolean[] divided = new boolean[num];
@@ -56,7 +56,7 @@ public class C01_FunctionQuiz1_선생님풀이 {
 		return yaksu;
 	}
 	
-	// 5번
+	// 5번 : 전달한 정수가 소수라면 true를 반환하고 아니면 false를 반환하는 함수
 	public static boolean isPrime(int num) {
 		if(num < 2) {
 			return false;
@@ -74,7 +74,7 @@ public class C01_FunctionQuiz1_선생님풀이 {
 		return true;
 	}
 
-	// 6번 - 방법1
+	// 6번 - 방법1 : 
 	// 어떤 함수가 자기 자신을 불러서 사용하는 것을 재귀함수라고 부른다 (성능 안좋음, 겉멋ㅋㅋ)
 	public static int recursive_factorial(int num) {
 		if(num == 1) {

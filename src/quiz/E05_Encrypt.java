@@ -1,11 +1,12 @@
 package quiz;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
 
 public class E05_Encrypt {
 	
@@ -25,58 +26,50 @@ public class E05_Encrypt {
 	
 	public static void main(String[] args) {
 		
-		int randomKey = (int)(Math.random() * 26);
-		int keyValue = randomKey;
+		encryption("files/frankenstein.txt", (int)(Math.random() * 24 + 1));
 		
-		System.out.println("열쇠값 : " + keyValue);
-		
-		File franken = new File("frankenstein");
-		File franken_copy = new File("frankenstein_copy");
-		
-		if(!franken_copy.exists()) {
-			franken_copy.mkdir();
-		}
-		
-		File[] franken_files = franken.listFiles();
-		
-		for(File file : franken_files) {
-			System.out.println(file);
-			
-			if(file.isDirectory()) {
-				File new_dir = new File(franken_copy, file.getName());
-				new_dir.mkdirs();
-				
-				File[] inner_files = file.listFiles();
-				
-				for(File file2 : inner_files) {
-					System.out.println(file2);
-				}
-			}else {
-				FileInputStream in = null;
-				try {
-					in = new FileInputStream(file);
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				}
-				FileOutputStream out = null;
-				try {
-					out = new FileOutputStream(new File(franken_copy,file.getName()));
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				}
-				
-				int _byte = -1;
-				try {
-					while((_byte = in.read()) != -1) {
-						out.write(_byte);
-					}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-
+	}
 	
+	public static boolean encryption(String path, int key) {
+		File file = new File(path);
+		
+		String fileName = file.getName();
+		String realFileName = fileName.substring(0, fileName.indexOf("."));
+		
+		File dst = new File("files/" + realFileName + "_encrypted.txt");
+		
+		try (
+				FileReader fin = new FileReader(file);
+				BufferedReader in = new BufferedReader(fin);
+				FileWriter fout = new FileWriter(dst);
+				BufferedWriter out = new BufferedWriter(fout)
+			){
+			
+			
+			String line;
+			//한줄씩 읽어들임
+			while((line = in.readLine()) != null) {
+				System.out.println(line);			
+				for(char ch : line.toCharArray()) {
+					if (Character.isUpperCase(ch)) {
+						ch = (char)((ch - 'A' + key) % 26 + 'A');
+					} else if (Character.isLowerCase(ch)) {
+						ch = (char)((ch - 'a' + key) % 26 + 'a');
+					}
+					out.append(ch);
+				}
+				out.append("\n");
+				
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.printf("암호화 성공! [키: %d]\n",key);
+		
+		return true; 
 	}
 }
 

@@ -1,5 +1,7 @@
 package quiz;
 
+
+
 public class E05_Decrypt {
 	
 	/*
@@ -9,4 +11,8 @@ public class E05_Decrypt {
 	 	Test. 암호화되어있는 frankenstein_encrypted.txt를 복호화 해보세요
 	 */
 
+	public static void main(String[] args) {
+	
+		
+	}
 }
