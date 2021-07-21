@@ -34,6 +34,7 @@ public class C01_FunctionQuiz1_선생님풀이 {
 	
 	// 4번  : 숫자를 전달하면 해당 숫자의 모든 약수를 배열 형태로 반환하는 함수
 	public static int[] allYaksu(int num) {
+		
 		// 50인 경우 boolean타입 변수 50개를 생성
 		boolean[] divided = new boolean[num];
 		
@@ -75,7 +76,7 @@ public class C01_FunctionQuiz1_선생님풀이 {
 	}
 
 	// 6번 - 방법1 : 
-	// 어떤 함수가 자기 자신을 불러서 사용하는 것을 재귀함수라고 부른다 (성능 안좋음, 겉멋ㅋㅋ)
+	// 어떤 함수가 자기 자신을 불러서 사용하는 것을 재귀함수라고 부른다 (성능 안좋음)
 	public static int recursive_factorial(int num) {
 		if(num == 1) {
 			return 1;
