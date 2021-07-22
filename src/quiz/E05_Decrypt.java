@@ -12,7 +12,7 @@ public class E05_Decrypt {
 	 */
 
 	public static void main(String[] args) {
-	
+		
 		
 	}
 }
