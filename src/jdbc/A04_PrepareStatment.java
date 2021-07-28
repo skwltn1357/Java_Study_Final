@@ -27,7 +27,7 @@ public class A04_PrepareStatment {
 	String exploit = "'a' or 1 == 1; DELETE FROM employees; --";
 	String user_input = "le";
 	String keyword = String.format("%%%s%%", user_input.toLowerCase());	//대소문자 구분없이 가능
-
+;
 	// ?를 쓰면 SQL Injection을 방어할 수 있다.
 	String sql = "SELECT * FROM employees" + " WHERE lower(first_name) LIKE ?";
 	

@@ -1,7 +1,14 @@
 package quiz;
 
 import java.util.Random;
-
+/*
+	학생 클래스를 요소로 갖는 ArrayList를 생성하고 학생을 30명 추가해보세요
+	
+	1. 각 학생의 점수는 랜덤으로 설정
+	2. 과목은 국/영/수
+	3. 30명의 평균 점수를 출력
+	4. 30명 중 가장 점수가 높은 학생의 성적을 출력
+*/
 public class D01_Student implements Comparable<D01_Student> {
 	public int snum;	//학생 번호
 	public int kor;
@@ -15,7 +22,7 @@ public class D01_Student implements Comparable<D01_Student> {
 	final private int MAX_SCORE = 100;
 	final private int NUM_OF_SUBJECT = 3;
 	
-	private static int curr_snum = 1000;
+	private static int curr_snum = 1000; 
 	private static Random ran = new Random();
 	
 	

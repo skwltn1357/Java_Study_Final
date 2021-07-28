@@ -1,4 +1,4 @@
-package coffee;
+package myobj.coffee;
 
 /**
 	# 원산지 번호

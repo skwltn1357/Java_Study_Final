@@ -1,4 +1,4 @@
-package coffee;
+package myobj.coffee;
 
 public class Origin {
 	
