@@ -1,4 +1,4 @@
-package gui.quiz;
+package gui.quiz.maple;
 
 import javax.swing.JFrame;
 /*
@@ -10,8 +10,6 @@ import javax.swing.JFrame;
 	행운 증가  +1 ~ +7
 	공격력 증가 +1 ~ +3
 */
-
-import gui.quiz.maple.RollButton;
 
 public class MapleStory extends JFrame {
 	
